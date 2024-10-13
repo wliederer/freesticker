@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3151c7b0.css",
+    "main.js": "/static/js/main.4b42ffb1.js",
+    "static/js/453.423cb7cb.chunk.js": "/static/js/453.423cb7cb.chunk.js",
+    "static/media/Hero.PNG": "/static/media/Hero.0a8b3c12bb000f9fc91f.PNG",
+    "static/media/Hellbone.otf": "/static/media/Hellbone.1a4fea5b7315520764b5.otf",
+    "static/media/CampanaScript.otf": "/static/media/CampanaScript.d1d5c7304f708ff7b4aa.otf",
+    "static/media/instagram.svg": "/static/media/instagram.96e0ee94530f1927a38af0906fbeae5c.svg",
+    "static/media/github.svg": "/static/media/github.1ec1b6358af088f82002590fd508d125.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.d675b76d6dab8fe82e5c41fd0e136b1e.svg",
+    "index.html": "/index.html",
+    "static/media/coffee.svg": "/static/media/coffee.2073caaf24fa6850651162b5fc2d1ecf.svg",
+    "static/media/hamburger.svg": "/static/media/hamburger.28c2d6a9540b176505ac1b08262410b9.svg",
+    "main.3151c7b0.css.map": "/static/css/main.3151c7b0.css.map",
+    "main.4b42ffb1.js.map": "/static/js/main.4b42ffb1.js.map",
+    "453.423cb7cb.chunk.js.map": "/static/js/453.423cb7cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3151c7b0.css",
+    "static/js/main.4b42ffb1.js"
+  ]
+}
