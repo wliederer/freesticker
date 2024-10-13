@@ -1,0 +1,270 @@
+/* Header.css */
+@font-face {
+  font-family: 'customFont';
+  src:url('../../fonts/Hellbone.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CampanaScript';
+  src: url('../../fonts/CampanaScript.otf') format('truetype');
+}
+
+/* Header container styles */
+header {
+    /* background-color: #f4efc2; */
+    background-color: rgba(244, 239, 194, 0);
+    /* border-bottom: 1px solid rgba(14, 14, 14, 0.18); */
+    position: fixed; /* Fixed position to keep the header at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* Ensure it's above other content */
+  }
+  
+  /* Navigation container styles */
+  nav {
+    max-width: 1200px; /* Limit the maximum width of the navigation */
+    margin: 0 auto; /* Center the navigation horizontally */
+    padding: 0 20px; /* Add padding to the left and right */
+    display: flex;
+    justify-content: space-between; /* Space out the logo and links */
+    align-items: center; /* Vertically center items */
+    height: 40px;
+  }
+
+  
+  /* Logo styles */
+  .logo h1 {
+    font-size: 40px; 
+    font-weight: bold;
+    font-family: 'customFont', sans-serif;
+    color: #AA4A44;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+
+  .nav-button {
+  background: transparent; /* No background */
+  color: #AA4A44; /* Match logo color */
+  font-size: 24px; /* Smaller than the logo */
+  font-weight: bold; /* Match the bold style of the logo */
+  font-family: 'customFont', sans-serif; /* Use customFont for the button */
+  letter-spacing: 2px; /* Same letter spacing as the logo */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: inline-block; /* Allows for padding and margin */
+  position: relative; /* Required for positioning the hover effect */
+  margin-left: 10px; /* Optional: space between the logo and button */
+}
+
+/* Hover effect for the nav button */
+.nav-button:hover {
+  color: #d5918e; /* Change color on hover */
+}
+
+/* Hover state for the clickable logo */
+.nav-button:hover::before {
+  content: 'Click me!';
+  position: absolute;
+  font-size: 12px; /* Size of hover text */
+  color: #d5918e; /* Color of hover text */
+  top: 100%; /* Position below the main text */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the text */
+  opacity: 0.7; /* Slightly transparent */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.hamburger {
+  display: none; /* Hide by default */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.nav-links {
+  display: flex;
+}
+  
+  @media (max-width: 768px) {
+    /* Adjust height for mobile devices */
+    .logo h1{
+        font-size: 32px;
+        margin-bottom: 0;
+    }
+
+    .nav-button {
+      font-size: 20px;
+    }
+
+    .hamburger {
+      display: block; /* Show the hamburger icon */
+    }
+
+    .nav-links {
+      display: none; /* Hide navigation links */
+      flex-direction: column; /* Stack vertically */
+      position: absolute; /* Position it absolute */
+      background-color: #e1b0af;
+      right: 0; /* Align to the left */
+      z-index: 99; /* Ensure it sits above other content */
+      border-radius: 5px;
+    }
+  
+    /* Show nav-links when the menu is open */
+    .nav-links.open {
+      display: flex; /* Display when open */
+    }
+  
+    /* Add some styles for the links */
+    .nav-links li {
+      padding: 10px 20px; /* Spacing for each link */
+    }
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer; 
+  }
+
+  .logo h1:hover {
+    color: #d5918e; /* Change the color on hover */
+    transition: color 0.3s ease; /* Smooth color change */
+  }
+  
+  /* Adjust the hover state for the clickable logo */
+  .logo h1:hover::before {
+    content: 'Click me!';
+    position: absolute;
+    font-size: 12px;
+    color: #d5918e;
+    top: 100%; /* Below the logo */
+    left: 10;
+    opacity: 0.7;
+  }
+  
+  .icon-container-logo {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding: 9px 15px;
+    width: 80px;
+    height: 18px;
+  }
+  .icon-container-logo div {
+    z-index: 2;
+    font-family: 'Outfit', sans-serif;
+    margin-left: 4px;
+    font-size: 13px;
+  }
+  
+  /* Pseudo-element for the hover effect */
+  .icon-container-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 25px 25px 25px 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .icon-container-logo:hover::before {
+    background-color: #f5f5f5;
+  }
+  
+  /* Navigation links styles */
+  .nav-links {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    /* margin-right: 20px; Space between links */
+    padding: 10px;
+  }
+  
+  /* Container for the icon and hover effect */
+  .icon-container {
+    justify-content: center;
+    position: relative; /* Required for positioning the ::before pseudo-element */
+    display: flex; /* To prevent extra space around the container */
+    cursor: pointer;
+    /* Set the width and height of the container to match the icon size */
+    width: 24px; /* Adjust based on your icon's width */
+    height: 24px; /* Adjust based on your icon's height */
+  }
+  
+  .icon-container a {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* The GitHub icon itself */
+  .icon {
+    fill: #000;
+    width: 100%;
+    height: auto;
+    transition: fill 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Pseudo-element for the hover effect */
+  .icon-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .icon-container:hover::before {
+    background-color: #d5918e;
+  }
+  
+  .overlay-menu {
+    position: absolute;
+    padding: 10px;
+    border-radius: 10px;
+    top: 30px;
+    /* left: 120px; */
+    margin-top: 40px;
+    display: flex;
+    /* margin-bottom: -50px; */
+    /* left: -300px; Initially hide the menu by moving it off the screen */
+    width: 250px; /* Adjust the width of the menu as needed */
+    height: auto;
+    background: white;
+    box-shadow:
+      0px 1px 3px 0px #0000004d,
+      0px 4px 8px 3px #00000026;
+    transition: left 0.3s ease; /* Smooth sliding transition */
+    text-align: left;
+  }
+  
+  .triangle {
+    position: absolute;
+    top: 30px;
+    left: 90%;
+    /* margin-left: -10px; */
+    width: 0;
+    height: 0;
+    border: 10px solid #e1b0af;
+    transform: rotate(-45deg);
+    box-shadow: 5px -5px 5px 0px #00000026;
+    border-radius: 0 0 0 9px;
+    /* 0px 4px 8px 3px #00000026; */
+    /* border-left: 10px solid transparent; */
+    /* border-bottom: 10px solid transparent; */
+    /* border-bottom: 10px solid #ffffff; Match the container's background color */
+  }
+  

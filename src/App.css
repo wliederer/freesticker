@@ -1,0 +1,8 @@
+#root {
+  height: 100%; /* Ensures the root div spans the full height */
+}
+
+.app-container {
+  min-height: 100vh; /* Makes sure the app spans the full view height */
+  background-color: #e5c19f; /* Apply the same background color */
+}
