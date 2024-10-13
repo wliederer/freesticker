@@ -64,7 +64,7 @@ header {
 
 /* Hover state for the clickable logo */
 .nav-button:hover::before {
-  content: 'Click me!';
+  /* content: 'Click me!'; */
   position: absolute;
   font-size: 12px; /* Size of hover text */
   color: #d5918e; /* Color of hover text */
@@ -133,7 +133,7 @@ header {
   
   /* Adjust the hover state for the clickable logo */
   .logo h1:hover::before {
-    content: 'Click me!';
+    /* content: 'Click me!'; */
     position: absolute;
     font-size: 12px;
     color: #d5918e;
