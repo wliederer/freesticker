@@ -7,6 +7,8 @@ import ImageUpload  from '../ImageUpload/ImageUpload';
 const SERVICE_ID = 'service_8om0mif'
 const TEMPLATE_ID = 'template_spprxgg'
 const PUBLIC_KEY = '2eyHiJYODn1OC-921'
+const URL = 'https://ihavetotakeashit.org'
+const LOCAL_URL = 'http://localhost:8080'
 
 
 const SendEmail = (props) => {
@@ -26,7 +28,7 @@ const SendEmail = (props) => {
     for (const file of imagesToUpload) {
       const formData = new FormData();
       formData.append('file', file);
-        const response = await fetch('https://ihavetotakeashit.org/images/upload', {
+        const response = await fetch(URL+`/images/upload`, {
           method: 'POST',
           body: formData,
           headers: {
@@ -35,8 +37,12 @@ const SendEmail = (props) => {
         });
 
         if (!response.ok) {
-          const errorText = await response.text(); 
-        throw new Error(`Failed to upload image: ${errorText}`);
+          if (response.status === 413) {
+            throw new Error('File size too large. 10MB limit.');
+          } else {
+            const errorText = await response.text();
+            throw new Error(`Failed to upload image: ${errorText}`);
+          }
         }
         const imageUrl = await response.text();
         uploadedImageUrls.push(imageUrl);
@@ -160,14 +166,16 @@ const SendEmail = (props) => {
             <button
               className="send"
               disabled={zip.length < 5 && address.length === 0 || loading}
-              onClick={(e) => {
+              onClick={async (e) => {
                 e.preventDefault()
-                handleSendEmail({ address, city, state, zip, message }).then(
-                  () => {
-                    resetForm()
-                    props.setIsSent(true)
-                  },
-                )
+                try {
+                  await handleSendEmail({ address, city, state, zip, message });
+            
+                  resetForm();
+                  props.setIsSent(true);
+                } catch (error) {
+                  console.error("Failed to send email:", error);
+                }
               }}
             >
               {loading ? (

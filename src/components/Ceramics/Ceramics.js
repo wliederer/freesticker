@@ -6,11 +6,13 @@ const Ceramics = () => {
   const [products, setProducts] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY
+  const URL = 'https://ihavetotakeashit.org'
+const LOCAL_URL = 'http://localhost:8080'
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${apiUrl}products`, {
+        const response = await fetch(`${URL}/products`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
