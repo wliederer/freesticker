@@ -57,17 +57,14 @@ const Header = () => {
         <div onClick={() => navigate('/')}  className="logo">
           <h1>Free Sticker</h1>
         </div>
-        <div>
-          <h5 onClick={() => navigate('/ceramics')} className="nav-button">
-            Free Ceramics
-          </h5>
-        </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <img src={hamburger} alt="Menu" />
-        </div>
         <div ref={dropdownRef}> 
           {isOpen ? <div className='triangle'></div> : ""}
           <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
+            <li>
+              <div onClick={() => navigate('/ceramics')} className="nav-button">
+              Free Ceramics
+              </div>
+            </li>
             <li className="icon-container">
               <a
                 href="https://www.instagram.com/total_willcall/"
@@ -87,6 +84,9 @@ const Header = () => {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="hamburger" onClick={toggleMenu}>
+          <img src={hamburger} alt="Menu" />
         </div>
       </nav>
     </header>

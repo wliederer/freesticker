@@ -23,12 +23,9 @@ const SendEmail = (props) => {
 
   const uploadImagesToS3 = async () => {
     const uploadedImageUrls = [];
-
     for (const file of imagesToUpload) {
       const formData = new FormData();
       formData.append('file', file);
-
-      try {
         const response = await fetch('http://localhost:8080/images/upload', {
           method: 'POST',
           body: formData,
@@ -38,15 +35,11 @@ const SendEmail = (props) => {
         });
 
         if (!response.ok) {
-          throw new Error('Failed to upload image');
+          const errorText = await response.text(); 
+        throw new Error(`Failed to upload image: ${errorText}`);
         }
         const imageUrl = await response.text();
         uploadedImageUrls.push(imageUrl);
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        notify("Image upload failed. Please try again.");
-        return [];
-      }
     }
 
     return uploadedImageUrls;
@@ -55,7 +48,15 @@ const SendEmail = (props) => {
 
   const handleSendEmail = async (obj) => {
     setLoading(true)
-    const imageUrls = await uploadImagesToS3();
+    let imageUrls = []
+    try {
+      imageUrls = await uploadImagesToS3();
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      notify(`Image upload failed: ${error.message || 'Please try again.'}`);
+      setLoading(false)
+      return;
+    }
     let result = ''
     for (let key in obj) {
       if (obj.hasOwnProperty(key)) {
