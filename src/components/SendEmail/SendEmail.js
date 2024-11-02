@@ -187,7 +187,7 @@ const SendEmail = (props) => {
           </div>
         </form>
       </div>
-      <ToastContainer toastStyle={{ backgroundColor: "#f7f7f7" }} />
+      <ToastContainer toastStyle={{ backgroundColor: "#f7f7f7", maxWidth: "300px" }} />
     </div>
   )
 }
