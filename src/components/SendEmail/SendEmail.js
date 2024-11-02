@@ -7,7 +7,7 @@ import ImageUpload  from '../ImageUpload/ImageUpload';
 const SERVICE_ID = 'service_8om0mif'
 const TEMPLATE_ID = 'template_spprxgg'
 const PUBLIC_KEY = '2eyHiJYODn1OC-921'
-const URL = 'https://ihavetotakeashit.org'
+const URL = 'https://freesticker.org/api'
 const LOCAL_URL = 'http://localhost:8080'
 
 

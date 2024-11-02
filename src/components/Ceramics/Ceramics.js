@@ -6,7 +6,7 @@ const Ceramics = () => {
   const [products, setProducts] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY
-  const URL = 'https://ihavetotakeashit.org'
+  const URL = 'https://freesticker.org/api'
 const LOCAL_URL = 'http://localhost:8080'
 
   useEffect(() => {
