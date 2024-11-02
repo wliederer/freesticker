@@ -26,7 +26,7 @@ const SendEmail = (props) => {
     for (const file of imagesToUpload) {
       const formData = new FormData();
       formData.append('file', file);
-        const response = await fetch('http://localhost:8080/images/upload', {
+        const response = await fetch('http://159.203.131.235:8080/images/upload', {
           method: 'POST',
           body: formData,
           headers: {
