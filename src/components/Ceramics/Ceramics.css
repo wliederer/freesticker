@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'customFont';
+    src:url('../../fonts/Hellbone.otf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'CampanaScript';
+    src: url('../../fonts/CampanaScript.otf') format('truetype');
+  }
+
 .ceramics {
-    padding-top: 40px;
+    padding: 40px 10px 0 10px;
 }
+
+.logo {
+    font-size: 40px; 
+    font-weight: bold;
+    font-family: 'customFont', sans-serif;
+    color: #AA4A44;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 3px;
+  }

@@ -37,8 +37,7 @@ const LOCAL_URL = 'http://localhost:8080'
   
   return (
     <div className='ceramics'>
-      <h1>Welcome to the Ceramics Page</h1>
-      <p>This page is all about ceramics.</p>
+      <h1 className='logo'>Oh Shit! Coming Soon!</h1>
       <Product products={products} />
     </div>
   );

@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'customFont';
+  src:url('../../fonts/Hellbone.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CampanaScript';
+  src: url('../../fonts/CampanaScript.otf') format('truetype');
+}
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +19,7 @@
   .product-card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    width: 150px;
+    width: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
@@ -23,7 +33,9 @@
   }
   
   .product-title {
-    padding: 10px;
     font-size: 1.1em;
     color: #333;
+    font-family: 'customFont', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
