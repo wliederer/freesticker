@@ -7,8 +7,8 @@ import ImageUpload  from '../ImageUpload/ImageUpload';
 const SERVICE_ID = 'service_8om0mif'
 const TEMPLATE_ID = 'template_spprxgg'
 const PUBLIC_KEY = '2eyHiJYODn1OC-921'
-const URL = 'https://freesticker.org/api'
-const LOCAL_URL = 'http://localhost:8080'
+const URL = 'https://freesticker.org:8443/api'
+const LOCAL_URL = 'http://localhost:8080/api'
 
 
 const SendEmail = (props) => {
@@ -28,7 +28,7 @@ const SendEmail = (props) => {
     for (const file of imagesToUpload) {
       const formData = new FormData();
       formData.append('file', file);
-        const response = await fetch(URL+`/images/upload`, {
+        const response = await fetch(LOCAL_URL+`/images/upload`, {
           method: 'POST',
           body: formData,
           headers: {
