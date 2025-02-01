@@ -2,7 +2,17 @@
   height: 100%; /* Ensures the root div spans the full height */
 }
 
+/* App.css */
+:root {
+  --color-primary: #ffffff; /* Default fallback */
+  --color-secondary: rgba(244, 239, 194, .9);
+  --color-accent: #AA4A44;
+  /* --color-background: #e1b0af; */
+  --color-background:#96B9D0;
+  --color-background-two:#e5c19f;
+}
+
 .app-container {
   min-height: 100vh; /* Makes sure the app spans the full view height */
-  background-color: #e5c19f; /* Apply the same background color */
+  background-color: var(--color-background-two); /* Apply the same background color */
 }

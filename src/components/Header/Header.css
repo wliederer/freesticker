@@ -43,7 +43,7 @@ header {
     font-size: 40px; 
     font-weight: bold;
     font-family: 'customFont', sans-serif;
-    color: #AA4A44;
+    color: var(--color-accent);
     letter-spacing: 2px;
     margin-top: 0;
     margin-bottom: 3px;
@@ -51,7 +51,7 @@ header {
 
   .nav-button {
   background: transparent; /* No background */
-  color: #AA4A44; /* Match logo color */
+  color: var(--color-accent);; /* Match logo color */
   font-size: 24px; /* Smaller than the logo */
   font-weight: bold; /* Match the bold style of the logo */
   font-family: 'customFont', sans-serif; /* Use customFont for the button */
@@ -108,7 +108,7 @@ header {
       display: none; /* Hide navigation links */
       flex-direction: column; /* Stack vertically */
       position: absolute; /* Position it absolute */
-      background-color: #e1b0af;
+      background-color: var(--color-background);
       right: 0; /* Align to the left */
       z-index: 99; /* Ensure it sits above other content */
       border-radius: 5px;
@@ -263,7 +263,7 @@ header {
     /* margin-left: -10px; */
     width: 0;
     height: 0;
-    border: 10px solid #e1b0af;
+    border: 10px solid var(--color-background);
     transform: rotate(-45deg);
     box-shadow: 5px -5px 5px 0px #00000026;
     border-radius: 0 0 0 9px;

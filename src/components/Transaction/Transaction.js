@@ -4,6 +4,7 @@ import TransactionHero from './TransactionHero';
 import emailjs from '@emailjs/browser'
 import 'react-toastify/dist/ReactToastify.css';
 import './Transaction.css'
+import FortuneCookie from '../FortuneCookie/FortuneCookie';
 
 const SERVICE_ID = 'service_8om0mif'
 const TEMPLATE_ID = 'template_spprxgg'
@@ -11,7 +12,7 @@ const PUBLIC_KEY = '2eyHiJYODn1OC-921'
 const apiUrl = process.env.REACT_APP_API_URL;
 const apiKey = process.env.REACT_APP_API_KEY
 const URL = 'https://freesticker.org:8443/api'
-const LOCAL_URL = 'http://localhost:8080/api'
+// const URL = 'http://localhost:8080/api'
 
 const Transaction = ({products, transactions}) => {
     const [message, setMessage] = useState('')
@@ -23,6 +24,8 @@ const Transaction = ({products, transactions}) => {
     const [state, setState] = useState('')
     const [zip, setZip] = useState('')
     const [loading, setLoading] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+
     const notify = (message) => toast(message);
 
     const handleZipCodeChange = (event) => {
@@ -78,7 +81,7 @@ const Transaction = ({products, transactions}) => {
             productId: products[0].id
         }
         try {
-            const response = await fetch(`${LOCAL_URL}/transactions`, {
+            const response = await fetch(`${URL}/transactions`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -95,6 +98,8 @@ const Transaction = ({products, transactions}) => {
                 let messageMe = message + "ATTN: Ceramics purchased"
                 handleSendEmail({firstName, lastName, addressLine1, addressLine2, city, state, zip, messageMe})
                 console.log("Transaction successfully received!");
+                setShowPopup(true)
+                resetForm()
                 notify("Transaction successfully received!");
             }
         } catch (error) {
@@ -127,8 +132,7 @@ const Transaction = ({products, transactions}) => {
                 * Fill out the information and I will send free ceramics!
             </div>
             <div>
-                We are almost ready
-            {/* <form>
+            <form>
                 <label>First Name*</label>
                 <input
                 type='text'
@@ -213,11 +217,12 @@ const Transaction = ({products, transactions}) => {
                 'Submit'
               )}
             </button>
-          </form> */}
+          </form>
             </div>
             </div>
             : <div className="heading">We Sold out!</div> }
         </div>
+        <FortuneCookie showPopup={showPopup} setShowPopup={setShowPopup}/>
         <ToastContainer toastStyle={{ backgroundColor: "#f7f7f7", maxWidth: "300px" }} />
         </div>
     )

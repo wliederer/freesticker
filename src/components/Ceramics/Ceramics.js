@@ -6,7 +6,7 @@ const EVENT_ID = 1;
 const apiUrl = process.env.REACT_APP_API_URL;
 const apiKey = process.env.REACT_APP_API_KEY
 const URL = 'https://freesticker.org:8443/api'
-const LOCAL_URL = 'http://localhost:8080/api'
+// const URL = 'http://localhost:8080/api'
 
 const Ceramics = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +15,7 @@ const Ceramics = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${LOCAL_URL}/products`, {
+        const response = await fetch(`${URL}/products`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const Ceramics = () => {
   useEffect(()=> {
     const fetchTransactions = async () => {
       try {
-        const response = await fetch(`${LOCAL_URL}/transactions/public`, {
+        const response = await fetch(`${URL}/transactions/public`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

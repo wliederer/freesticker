@@ -28,7 +28,7 @@ const SendEmail = (props) => {
     for (const file of imagesToUpload) {
       const formData = new FormData();
       formData.append('file', file);
-        const response = await fetch(LOCAL_URL+`/images/upload`, {
+        const response = await fetch(URL+`/images/upload`, {
           method: 'POST',
           body: formData,
           headers: {
